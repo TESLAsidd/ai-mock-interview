@@ -5,12 +5,16 @@ from database import engine
 from models import Base
 
 from routes.users import router
+from fastapi import Header
+
+
 
 app = FastAPI()
 
 Base.metadata.create_all(bind=engine)
 
 app.include_router(router)
+
 @app.get("/")
 def home():
 
